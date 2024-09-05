@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Themer</title>
+    <link rel="stylesheet" href="vars.css">
+    <link rel="stylesheet" href="./color-packs/sys.css">
+    <link rel="stylesheet" href="./color-packs/asth.css">
+    <link rel="stylesheet" href="./color-packs/cust.css">
+    <link rel="stylesheet" href="./css/rectangular-drawer.css">
+    <link rel="stylesheet" href="./css/search.css">
+    <link rel="stylesheet" href="./css/apps.css">
+    <link rel="stylesheet" href="./css/circular-drawer.css">
+    <link rel="stylesheet" href="./css/switch.css">
+    <link rel="stylesheet" href="./css/clock.css">
+    <style>
+        html, body {
+            background-color: var(--colour2);
+        }
+        .optbase {
+            width: 125px;
+            height: 60px;
+            border-radius: 35px;
+            border: 5px solid var(--colour1);
+            position: relative;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .optbase span {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 25px;
+            position: absolute;
+            top: 30px;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            transition: all 0.4s ease;
+            color: var(--colour1);
+            cursor: pointer;
+        }
+
+        .options {
+            display: none;
+            flex-direction: column;
+            overflow-y: auto;
+            height: calc(100% - 60px);
+            margin-top: 60px;
+        }
+
+        .options::-webkit-scrollbar {
+            display: none;
+        }
+
+        .option {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 20px;
+            padding: 10px;
+            text-align: center;
+            color: var(--colour1);
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .option:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="optbase" onclick="expandSelector()">
+        <span id="systemName">System</span>
+        <div class="options" id="optionsContainer"></div>
+    </div>
+
+    <script>
+        const options = ['System', 'Option 1', 'Option 2', 'Option 3', 'Option 4', 'Option 5', 'Option 6', 'Option 7'];
+        const optionsContainer = document.getElementById('optionsContainer');
+        const systemName = document.getElementById('systemName');
+        let selectedIndex = 0;
+
+        function change0() {
+            console.log("Change 0 function called for System");
+            // Add your specific functionality for System here
+        }
+
+        function change1() {
+            console.log("Change 1 function called for Option 1");
+            // Add your specific functionality for Option 1 here
+        }
+
+        function change2() {
+            console.log("Change 2 function called for Option 2");
+            // Add your specific functionality for Option 2 here
+        }
+
+        // Add more change functions as needed
+        function change7() {
+            console.log("Change 7 function called for Option 7");
+            // Add your specific functionality for Option 7 here
+        }
+
+        options.forEach((option, index) => {
+            const optionElement = document.createElement('div');
+            optionElement.className = 'option';
+            optionElement.textContent = option;
+            optionElement.onclick = (e) => {
+                e.stopPropagation();
+                if (index !== selectedIndex) {
+                    systemName.textContent = option;
+                    selectedIndex = index;
+                    // Call the appropriate change function optbased on the index
+                    const changeFunction = window[`change${index}`];
+                    if (typeof changeFunction === 'function') {
+                        changeFunction();
+                    } else {
+                        console.log(`Change function for ${option} (index ${index}) not defined`);
+                    }
+                }
+                expandSelector();
+            };
+            optionsContainer.appendChild(optionElement);
+        });
+
+        function expandSelector() {
+            const optbaseElement = document.querySelector('.optbase');
+            const optionsElement = document.querySelector('.options');
+            const currentHeight = window.getComputedStyle(optbaseElement).height;
+            
+            if (currentHeight === '200px') {
+                optbaseElement.style.height = '60px';
+                optionsElement.style.display = 'none';
+            } else {
+                optbaseElement.style.height = '200px';
+                optionsElement.style.display = 'flex';
+            }
+        }
+    </script>
+</body>
+</html>

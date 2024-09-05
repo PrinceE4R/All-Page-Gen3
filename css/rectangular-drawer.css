@@ -1,0 +1,63 @@
+.rectangular-drawer {
+    left:0;
+    transform: translate(-90%, -5%);
+    transition: all 0.4s ease;
+    width: 450px;
+    height: 105%;
+  }
+  
+  .rectangle{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 2;
+    transition: all 0.3s ease;
+    border-right: 5px solid var(--colour1);
+    background-color: var(--colour2);
+  }
+  
+  .rectangle-shadow {
+    left: 20px;
+    top: 40px;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 1;
+    transition: all 0.3s ease;
+    background-color: black;
+    border-radius: var(--br);
+  }
+  
+  .drawer-bar2 {
+    position: absolute; /* Use absolute positioning relative to .drawer */
+    top: 50%; /* Position it at the middle vertically */
+    right: 5%; /* Center horizontally, adjust if needed */
+    transform: translate(-50%, -50%);
+    border-radius: 5px; /* Center both horizontally and vertically */
+    z-index: 4;
+    width: 10px;
+    height: 50px;
+    background-color: var(--colour1);
+  }
+  
+  .pseudo-drawer-bar2 {
+    position: absolute; /* Use absolute positioning relative to .drawer */
+    top: 50%; /* Position it at the middle vertically */
+    right: -10%; /* Center horizontally, adjust if needed */
+    transform: translateY(-50%); /* Center both horizontally and vertically */
+    z-index: 5;
+    width: 100px;
+    height: 150px;
+    background-color: transparent;
+    border-radius: 10px;
+  }
+  
+  .drawer-apps {
+    z-index: 5;
+    position: absolute;
+    width: 405px;
+    height: 90%;
+    top: 50%;
+    left: -5%;
+    transform: translate(0, -50%);
+  }
