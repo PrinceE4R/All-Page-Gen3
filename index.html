@@ -14,6 +14,8 @@
     <link rel="stylesheet" href="./css/circular-drawer.css">
     <link rel="stylesheet" href="./css/switch.css">
     <link rel="stylesheet" href="./css/clock.css">
+    <link rel="stylesheet" href="./css/themer.css">
+    <link rel="stylesheet" href="./css/options.css">
     <style>
         /*<script src="./js/onload.js">//add this in script to set light mode as default</script>*/
     </style>
@@ -195,7 +197,20 @@
             </div>
             <script src="./js/clock.js"></script>
         </div>
-        <div class="themer-container">ERROR</div>
+        <div class="themer-container">
+        <div class="optbase" onclick="expandSelector()">
+            <span id="systemName">System</span>
+            <script src="./js/themer.js"></script>
+            <div class="options">
+                <div class="options-box">
+                    <ul id="options-list">
+                        <!-- Options will be generated dynamically -->
+                    </ul>
+                    <script src="./js/options.js"></script>
+                </div>
+            </div>
+        </div>
+        </div>
         <script src="./js/circular-drawer.js"></script>
     </div>
 </body>

@@ -23,8 +23,9 @@
 .minute-hand {
     width: 6px;
     height: 66px;
-    background: #505050;
+    background: var(--colour1);
     z-index: 2;
+    filter: brightness(0.3); /* Darkens the minute-hand */
 }
 .second-hand {
     width: 2px;

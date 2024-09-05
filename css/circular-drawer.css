@@ -41,11 +41,9 @@
   top: 45%;
   left: 40%;
   z-index: 3;
-  width: 155px;
+  width: 135px;
   height: 250px;
-  background-color: var(--colour1);
   border-radius: var(--br);
-  display: none;
 }
 .circle-shadow {
   position: absolute;
