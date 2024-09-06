@@ -5,6 +5,7 @@ const nextButton = document.querySelector('.next');
 const seekSlider = document.querySelector('.seek-slider');
 const playtime = document.querySelector('.playtime');
 const musicImage = document.querySelector('.music-image');
+const musicImageCover = document.querySelector('.music-image-cover');
 const musicImageSvg = document.querySelector('.music-image svg');
 const pauseButton = document.querySelector('.pause');
 let choice = 1;// Set to 1 for playlist or 2 for video
@@ -61,6 +62,7 @@ function onPlayerStateChange(event) {
     const videoId = player.getVideoData().video_id;
     const thumbnailUrl = `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
     musicImage.style.backgroundImage = `url('${thumbnailUrl}')`;
+    musicImageCover.style.backgroundColor = 'var(--colour1)';
     pauseButton.style.display = 'block';
     playButton.style.display = 'none';
     musicImageSvg.style.display = 'none';
@@ -68,6 +70,7 @@ function onPlayerStateChange(event) {
     pauseButton.style.display = 'none';
     playButton.style.display = 'block';
     musicImageSvg.style.display = 'block';
+    musicImageCover.style.backgroundColor = 'transparent';
     musicImage.style.backgroundImage = 'none';
   }
 }
