@@ -83,6 +83,22 @@
             background-repeat: no-repeat;
             background-position: center;
             background-size: cover;
+            z-index: 10;
+        }
+        .music-image-cover {
+            position: absolute;
+            width: 55px;
+            height: 55px;
+            left: 50%;
+            top: 50%;
+            border-radius: 10px;
+            transform: translate(-50%, -50%);
+            background-color: transparent;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            mix-blend-mode: color;
+            z-index: 11;
         }
         .music-image svg {
             display: block;
