@@ -19,3 +19,14 @@ function updateClock() {
 
 setInterval(updateClock, 1000);
 updateClock(); // Initial call to avoid delay
+
+function updateMinuteHand() {
+    if(darkModeSelected) {
+        document.querySelector('.minute-hand').style.backgroundColor = 'var(--colour1)';
+    }
+    else {
+        document.querySelector('.minute-hand').style.backgroundColor = 'var(--colour2)';
+    }
+}
+
+setInterval(updateMinuteHand, 10)

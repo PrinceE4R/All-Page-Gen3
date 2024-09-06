@@ -2,7 +2,14 @@ const options = [
     { name: 'System', func: optionsCreator("system") },
     { name: 'Cyberpunk', func: optionsCreator("cyberpunk") },
     { name: 'Synthwave', func: optionsCreator("synthwave") },
-    { name: 'Demon', func: optionsCreator("demon") }
+    { name: 'Demon', func: optionsCreator("demon") },
+    { name: 'Pink', func: optionsCreator("pink") },
+    { name: 'Red', func: optionsCreator("red") },
+    { name: 'Yellow', func: optionsCreator("yellow") },
+    { name: 'Green', func: optionsCreator("green") },
+    { name: 'Blue', func: optionsCreator("blue") },
+    { name: 'Cyan', func: optionsCreator("cyan") },
+    { name: 'Purple', func: optionsCreator("purple") }
 ];
 
 // Function to generate the options list dynamically
