@@ -7,8 +7,9 @@
   }
   
   .rectangle{
-    width: 100%;
+    width: 105%;
     height: 100%;
+    transform: translateX(-5%);
     position: absolute;
     z-index: 2;
     transition: all 0.3s ease;
