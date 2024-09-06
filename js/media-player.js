@@ -93,9 +93,20 @@ nextButton.addEventListener('click', () => {
   player.seekTo(0);
 });
 
+let clickTimer = null;
+const delay = 300;  // Time delay to differentiate single and double click
+
 previousButton.addEventListener('click', () => {
-  player.previousVideo();
-  player.seekTo(0);
+  if (clickTimer) {
+    clearTimeout(clickTimer);  // Cancel the single-click action
+    clickTimer = null;
+    player.previousVideo();    // Double click: play previous video
+  } else {
+    clickTimer = setTimeout(() => {
+      player.seekTo(0);        // Single click: seek to 0
+      clickTimer = null;
+    }, delay);
+  }
 });
 
 seekSlider.addEventListener('input', (e) => {
