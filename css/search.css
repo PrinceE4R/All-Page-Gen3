@@ -81,6 +81,11 @@
     border: 3px solid var(--colour1);
     display: none;
 }
+
+.suggestions-container::-webkit-scrollbar-thumb:hover {
+  display: block;
+}
+
   .suggestion {
     padding: 10px 0; /* Adds vertical padding */
     padding-left: 15px;
