@@ -24,7 +24,7 @@ function onYouTubeIframeAPIReady() {
 
 function onPlayerReady(event) {
   if (choice === 1) {
-    const playlistId = 'PLI2mUusOsHdLAMyfI-AOws-nQrYek39cF'; // Use actual YouTube playlist ID
+    const playlistId = 'PLI2mUusOsHdK7oxV6cdLLMsMAAwYNx0s6'; // Use actual YouTube playlist ID
     player.loadPlaylist({ list: playlistId, listType: 'playlist' });
   } else if (choice === 2) {
     const videoId = 'Gqdv_-BMlJs';
