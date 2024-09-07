@@ -68,8 +68,19 @@
     padding-bottom: 10px;
   }
   .suggestions-container::-webkit-scrollbar {
-    display: none; /* Hides scrollbar for WebKit browsers */
+    width: 18px;
   }
+  
+  .suggestions-container::-webkit-scrollbar-track {
+    background: var(--colour2);
+  }
+  
+  .suggestions-container::-webkit-scrollbar-thumb {
+    border-radius: 20px;
+    background-color: var(--colour2);
+    border: 3px solid var(--colour1);
+    display: none;
+}
   .suggestion {
     padding: 10px 0; /* Adds vertical padding */
     padding-left: 15px;
