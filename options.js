@@ -1,16 +1,17 @@
 const options = [
-    { name: 'System', func: optionsCreator("system") },
-    { name: 'Cyberpunk', func: optionsCreator("cyberpunk") },
-    { name: 'Synthwave', func: optionsCreator("synthwave") },
-    { name: 'Death', func: optionsCreator("death") },
-    { name: 'Matrix', func: optionsCreator("matrix") },
-    { name: 'Pink', func: optionsCreator("pink") },
-    { name: 'Red', func: optionsCreator("red") },
-    { name: 'Yellow', func: optionsCreator("yellow") },
-    { name: 'Green', func: optionsCreator("green") },
-    { name: 'Blue', func: optionsCreator("blue") },
-    { name: 'Cyan', func: optionsCreator("cyan") },
-    { name: 'Purple', func: optionsCreator("purple") }
+    { name: 'System', func: optionsCreator("system","20") },
+    { name: 'Death', func: optionsCreator("death","20") },
+    { name: 'Synthwave', func: optionsCreator("synthwave","18") },
+    { name: 'Cyberpunk', func: optionsCreator("cyberpunk","18") },
+    { name: 'Matrix', func: optionsCreator("matrix","20") },
+    { name: 'Bladerunner', func: optionsCreator("bladerunner","16") },
+    { name: 'Pink', func: optionsCreator("pink","20") },
+    { name: 'Red', func: optionsCreator("red","20") },
+    { name: 'Yellow', func: optionsCreator("yellow","20") },
+    { name: 'Green', func: optionsCreator("green","20") },
+    { name: 'Blue', func: optionsCreator("blue","20") },
+    { name: 'Cyan', func: optionsCreator("cyan","20") },
+    { name: 'Purple', func: optionsCreator("purple","20") }
 ];
 
 // Function to generate the options list dynamically
@@ -30,9 +31,10 @@ function generateOptions() {
 }
 
 // Define your option creator function
-function optionsCreator(name) {
+function optionsCreator(name, fontsize) {
     return function() {
         const systemNameElement = document.getElementById('systemName');
+        const optBase = document.querySelector('.optbase span');
         const root = document.documentElement;
         const suggestionsContainer = document.querySelector('.suggestions-container');
         
@@ -46,6 +48,7 @@ function optionsCreator(name) {
         const imgPath = `./images/${name}.jpg`;
         document.body.style.backgroundImage = `url(${imgPath})`;
         suggestionsContainer.style.color = `var(--${name}-light)`;
+        optBase.style.fontSize = `${fontsize}px`;
         systemNameElement.textContent = name.charAt(0).toUpperCase() + name.slice(1);
         toggleSwitch();
         toggleSwitch();
