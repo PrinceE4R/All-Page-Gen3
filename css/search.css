@@ -72,12 +72,11 @@
   }
   
   .suggestions-container::-webkit-scrollbar-track {
-    background: var(--colour2);
+    display: none;
   }
   
   .suggestions-container::-webkit-scrollbar-thumb {
     border-radius: 20px;
-    background-color: var(--colour2);
     border: 3px solid var(--colour1);
     display: none;
 }
