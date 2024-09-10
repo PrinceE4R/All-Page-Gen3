@@ -7,7 +7,7 @@
   }
   
   .rectangle{
-    width: 100%;
+    width: 102%;
     height: 100%;
     transform: translateX(-5%);
     position: absolute;
@@ -18,9 +18,9 @@
   }
   
   .rectangle-shadow {
-    left: 10px;
+    left: 5px;
     top: 40px;
-    width: 97%;
+    width: 100%;
     height: 100%;
     position: absolute;
     z-index: 1;
@@ -32,7 +32,7 @@
   .drawer-bar2 {
     position: absolute; /* Use absolute positioning relative to .drawer */
     top: 50%; /* Position it at the middle vertically */
-    right: 8%; /* Center horizontally, adjust if needed */
+    right: 7%; /* Center horizontally, adjust if needed */
     transform: translate(-50%, -50%);
     border-radius: 5px; /* Center both horizontally and vertically */
     z-index: 4;
@@ -44,7 +44,7 @@
   .pseudo-drawer-bar2 {
     position: absolute; /* Use absolute positioning relative to .drawer */
     top: 50%; /* Position it at the middle vertically */
-    right: -8%; /* Center horizontally, adjust if needed */
+    right: -7%; /* Center horizontally, adjust if needed */
     transform: translateY(-50%); /* Center both horizontally and vertically */
     z-index: 5;
     width: 100px;
@@ -59,6 +59,6 @@
     width: 400px;
     height: 90%;
     top: 50%;
-    left: -5%;
+    left: -10px;
     transform: translate(0, -50%);
   }
