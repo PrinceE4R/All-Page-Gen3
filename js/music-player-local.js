@@ -17,7 +17,18 @@ const source = audioContext.createMediaElementSource(audio);
 source.connect(analyser);
 analyser.connect(audioContext.destination);
 
+// Flag to control rendering
+let isRendering = false;
+
+function initializeBars() {
+    bars.forEach(bar => {
+        bar.style.height = '20px';
+    });
+}
+
 function renderFrame() {
+    if (!isRendering) return; // Stop rendering if not active
+
     requestAnimationFrame(renderFrame);
     
     // Get frequency data
@@ -25,7 +36,7 @@ function renderFrame() {
     
     // Scale the height of the bars based on frequency data
     bars.forEach((bar, index) => {
-        const maxBarHeight = 70; // Set max height to 80px
+        const maxBarHeight = 70; // Set max height to 70px
         const barHeight = (dataArray[index] / 255) * maxBarHeight; // Normalize height based on max value of 255
         bar.style.height = `${barHeight}px`;
     });
@@ -37,6 +48,7 @@ function playMusic() {
     audio.play();
     playButton.style.display = 'none';
     pauseButton.style.display = 'block';
+    isRendering = true; // Start rendering
     renderFrame();
 }
 
@@ -45,6 +57,9 @@ function pauseMusic() {
     audio.pause();
     playButton.style.display = 'block';
     pauseButton.style.display = 'none';
+    isRendering = false; // Stop rendering
+    // Reset bar heights
+    initializeBars();
 }
 
 // Time update for slider and display
