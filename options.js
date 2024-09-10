@@ -33,6 +33,7 @@ function generateOptions() {
 // Define your option creator function
 function optionsCreator(name, fontsize) {
     return function() {
+        const audio = document.getElementById('audio');
         const systemNameElement = document.getElementById('systemName');
         const optBase = document.querySelector('.optbase span');
         const root = document.documentElement;
@@ -49,6 +50,7 @@ function optionsCreator(name, fontsize) {
         document.body.style.backgroundImage = `url(${imgPath})`;
         suggestionsContainer.style.color = `var(--${name}-light)`;
         optBase.style.fontSize = `${fontsize}px`;
+        audio.src = `./audios/${name}.m4a`;
         systemNameElement.textContent = name.charAt(0).toUpperCase() + name.slice(1);
         toggleSwitch();
         toggleSwitch();
