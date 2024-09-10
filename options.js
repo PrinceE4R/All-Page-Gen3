@@ -24,9 +24,14 @@ function generateOptions() {
         const li = document.createElement('li');
         li.textContent = option.name;
         li.addEventListener('click', () => {
+            // Remove 'selected' class from all options
+            optionsList.querySelectorAll('li').forEach(el => el.classList.remove('selected'));
+            // Add 'selected' class to clicked option
+            li.classList.add('selected');
             option.func();
-            // Save the selected theme in localStorage
+            // Save the selected theme and its selected state in localStorage
             localStorage.setItem('selectedTheme', option.name);
+            localStorage.setItem('selectedThemeState', 'true');
         });
         optionsList.appendChild(li);
     });
@@ -62,15 +67,23 @@ function optionsCreator(name, fontsize) {
 // Function to load the theme from localStorage
 function loadTheme() {
     const savedTheme = localStorage.getItem('selectedTheme');
+    const savedThemeState = localStorage.getItem('selectedThemeState');
     if (savedTheme) {
         const themeOption = options.find(option => option.name === savedTheme);
         if (themeOption) {
             themeOption.func(); // Apply the saved theme
+            // Add 'selected' class to the saved theme option if it was selected
+            if (savedThemeState === 'true') {
+                const optionsList = document.getElementById('options-list');
+                const selectedLi = Array.from(optionsList.children).find(li => li.textContent === savedTheme);
+                if (selectedLi) {
+                    selectedLi.classList.add('selected');
+                }
+            }
         }
     }
 }
 
-// Generate the options and load saved theme on page load
 window.addEventListener('load', () => {
     generateOptions();
     loadTheme(); // Load the saved theme if it exists

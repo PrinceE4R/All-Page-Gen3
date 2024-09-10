@@ -1,10 +1,10 @@
 .options-box {
     width: 200px;
-    height: 110px; /* Set a height to trigger scrolling */
+    height: 110px;
     background-color: var(--colour2);
     border-radius: 8px;
     padding: 20px;
-    overflow-y: auto; /* Enable vertical scrolling */
+    overflow-y: auto;
 }
 
 .options-box::-webkit-scrollbar {
@@ -29,6 +29,11 @@ li {
 }
 
 li:hover {
+    background-color: var(--colour1);
+    color: var(--colour2);
+}
+
+li.selected {
     background-color: var(--colour1);
     color: var(--colour2);
 }
